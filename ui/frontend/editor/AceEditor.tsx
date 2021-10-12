@@ -329,7 +329,7 @@ interface AceEditorAsyncProps {
   pairCharacters: PairCharacters;
 }
 
-class AceEditorAsync extends React.Component<AceEditorAsyncProps, AdvancedEditorAsyncState> {
+class AceEditorAsync extends React.Component<AceEditorAsyncProps, AceEditorAsyncState> {
   public constructor(props) {
     super(props);
     this.state = {
@@ -447,13 +447,13 @@ class AceEditorAsync extends React.Component<AceEditorAsyncProps, AdvancedEditor
 
   private async requireLibraries() {
     return import(
-      /* webpackChunkName: "advanced-editor" */
-      '../advanced-editor'
+      /* webpackChunkName: "ace-editor" */
+      '../ace-editor'
     );
   }
 }
 
-interface AdvancedEditorAsyncState {
+interface AceEditorAsyncState {
   theme?: string;
   keybinding?: string;
   themeState: LoadState;
