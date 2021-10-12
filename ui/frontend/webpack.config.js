@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const glob = require('glob');
 const basename = require('basename');
+const path = require('path');
 
 const thisPackage = require('./package.json');
 const devDependencies = Object.keys(thisPackage.devDependencies);
@@ -79,6 +80,10 @@ module.exports = function(_, argv) {
           test: [/\.ts$/, /\.tsx$/],
           exclude: /node_modules/,
           use: ['babel-loader', 'ts-loader'],
+        },
+        {
+          test: /\.specialasset$/,
+          use: path.resolve(__dirname, 'special-asset-loader.js'),
         },
         {
           test: /\.css$/,

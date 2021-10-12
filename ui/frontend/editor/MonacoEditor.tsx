@@ -6,6 +6,8 @@ import State from '../state';
 
 import styles from './Editor.module.css';
 import { config, grammar } from './rust_monaco_def';
+// @ts-ignore
+import monacoHash from "./monaco-editor.specialasset";
 
 const modeId = 'my-rust';
 
@@ -42,7 +44,7 @@ const mapStateToProps = (state: State) => {
 
 type MonacoEditorProps = CommonEditorProps & PropsFromState;
 
-loader.config({ paths: { vs: '/assets/vs' } });
+loader.config({ paths: { vs: '/assets/' + monacoHash } });
 
 const MonacoEditor: React.SFC<MonacoEditorProps> = props => {
   return (
